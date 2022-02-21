@@ -12,7 +12,12 @@ if (is_multisite()){
 	if (get_current_blog_id() == get_network()->site_id) {
 		// Register the 'settings' page, but only on the primary blog for the network
 		add_action( 'admin_menu', __NAMESPACE__ . '\\add_plugin_page' );
-	}
+	} else {
+	    // do nothing for subsites of the network that aren't the primary.
+        // subsites use the primary site's settings.
+        // I know you could use a network wide setting page instead, but that
+        // requires a bunch of custom code.
+    }
 } else {
     // Register the 'settings' page on the one and only blog (not a multisite)
 	add_action( 'admin_menu', __NAMESPACE__ . '\\add_plugin_page' );
@@ -86,7 +91,7 @@ function admin_init() {
 	// add the email input in the email section
 	add_email_setting();
 	// add the post type checkboxes in the post type section
-	$post_types = get_post_types('', 'objects');
+	$post_types = get_post_types(['public' => true], 'objects');
 	foreach ($post_types as $post_object) {
 		add_post_type_setting($post_object);
 	}

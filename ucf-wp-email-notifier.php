@@ -3,7 +3,7 @@
 Plugin Name: UCF WP Email Notifier
 Description: Sends email notifications on every page publish, delete, and update.
 
-Version: 1.0.0
+Version: 1.1.0
 
 Author: Stephen Schrauger
 Plugin URI: https://github.com/schrauger/ucf-wp-email-notifier
