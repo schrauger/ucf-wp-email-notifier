@@ -189,6 +189,7 @@ function setting_input_text( $args ) {
         id='{$args['id']}'
         name='{$args[ 'section' ]}[{$args[ 'id' ]}]'
         value='{$args['value']}'
+        multiple='true'
         />
     ";
 
